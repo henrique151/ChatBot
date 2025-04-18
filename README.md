@@ -51,7 +51,7 @@ A aplicação tem como objetivo facilitar o acesso à informação de maneira in
 
 1. **Clone o repositório:**
 ```bash
-git clone https://github.com/seu-usuario/asimobot.git
+git clone https://github.com/henrique151/ChatBot
 ```
 
 2. **Acesse o diretório do projeto:**
