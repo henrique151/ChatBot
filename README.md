@@ -1,49 +1,75 @@
-## Sobre o projeto:
- 
-Este projeto automatiza o processo de transcrição e resumo de vídeos do YouTube, utilizando inteligência artificial de ponta.
+# 🤖 AsimoBot – ChatBot Inteligente com LangChain e Groq
 
-A aplicação funciona da seguinte forma:
+## 📌 Sobre o projeto
 
-1) Entrada de URL do YouTube: o usuário fornece o link de um vídeo diretamente pelo terminal.
-2) Extração do áudio: o áudio é baixado usando pytubefix e convertido para .wav com ffmpeg.
-3) Transcrição com Whisper (OpenAI): o áudio é transcrito localmente, com suporte ao idioma português.
-4) Resumo com ChatGPT: o conteúdo transcrito é enviado para a API da OpenAI, que gera um resumo estruturado e formatado em Markdown.
-5) Exportação: a transcrição é salva em transcricao.txt e o resumo final em resumo.md.
+O **AsimoBot** é um chatbot inteligente que interage com o usuário com base em diferentes fontes de informação como **sites**, **PDFs** e **vídeos do YouTube**, utilizando inteligência artificial com a biblioteca **LangChain** e o modelo da **Groq API**.
 
-## Tecnologias utilizadas:
+A aplicação tem como objetivo facilitar o acesso à informação de maneira interativa e dinâmica, resumindo, explicando e respondendo perguntas sobre conteúdos específicos fornecidos pelo usuário.
 
-- Python
+### 🔎 Como funciona:
 
-## Como utilizar esse projeto de maneira local:
+1. **Seleção de Fonte de Informação:**
+   - O usuário escolhe interagir com:
+     - 🌐 Um site (digitando a URL),
+     - 📄 Um arquivo PDF (selecionando via uma janela do sistema),
+     - ▶️ Um vídeo do YouTube (informando a URL do vídeo).
 
-#### Pré requisitos:
+2. **Extração de Conteúdo:**
+   - O conteúdo é carregado da fonte escolhida utilizando loaders da LangChain (WebBaseLoader, PyPDFLoader e YoutubeLoader).
 
-- Ter o Python instalado
-- Ter o FFmpeg instalado e configurado no sistema
-- Criar um arquivo .env na raiz do projeto com a seguinte variável:
-  
+3. **Interação com o AsimoBot:**
+   - Um assistente virtual chamado **Asimo** é iniciado e responde às perguntas feitas com base nas informações extraídas.
+
+4. **Diálogo Contínuo:**
+   - O chat mantém o histórico da conversa, permitindo interações mais naturais e contextualizadas.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- **Python** – linguagem principal da aplicação
+- **LangChain** – orquestração de LLMs e gerenciamento de conversas
+- **Groq API** – modelos de linguagem de alta performance
+- **Tkinter** – interface para seleção de arquivos PDF
+- **dotenv** – gerenciamento de variáveis sensíveis (.env)
+
+---
+
+## ⚙️ Como utilizar o projeto localmente
+
+### ✅ Pré-requisitos:
+
+- Python 3.10+
+- Conta ativa na [Groq](https://console.groq.com/)
+- Chave de API da Groq
+- (Para usar YouTube): conexão com a internet e o vídeo deve ter legendas disponíveis
+- (Para PDFs): o sistema precisa suportar GUI (janela para seleção de arquivos)
+
+---
+
+### 🛠️ Passo a passo:
+
+1. **Clone o repositório:**
 ```bash
-  OPENAI_API_KEY="sua-chave-da-openai"
+git clone https://github.com/seu-usuario/asimobot.git
 ```
 
-### Passo a passo
-
-Clone o repositório:
+2. **Acesse o diretório do projeto:**
 ```bash
-  git clone https://github.com/henrique151/ResumoVideoIA
+cd ChatBot
 ```
 
-Acesse o diretório do projeto:
+3. **Crie o arquivo .env com sua chave da Groq:**
 ```bash
-  cd ResumoVideoIA
+GROQ_API_KEY="sua-chave-da-groq"
 ```
 
-Instale as dependências:
+4. **Instale as dependências:**
 ```bash
-  pip install openai pytubefix git+https://github.com/openai/whisper.git python-dotenv
+pip install langchain langchain_groq langchain_community python-dotenv tkinter
 ```
 
-Execute a aplicação:
+5.**Execute o programa:**
 ```bash
-  python app.py <link-do-video>
+python app.py
 ```
