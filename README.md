@@ -69,7 +69,7 @@ GROQ_API_KEY="sua-chave-da-groq"
 pip install langchain langchain_groq langchain_community python-dotenv tkinter
 ```
 
-5.**Execute o programa:**
+5. **Execute o programa:**
 ```bash
 python app.py
 ```
